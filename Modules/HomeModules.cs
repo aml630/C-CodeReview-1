@@ -12,15 +12,19 @@ namespace todoNamespace
       Get["/"] =_=> {
         return View ["add_view.cshtml"];
       };
-      Get["/tasks/{id}"] = parameters => {
-        Task task = Task.Find(parameters.id);
-        return View["/task.cshtml", task];
-};
+      Get["/task/{id}"] = parameters => {
+        Task newTask = Task.Find(parameters.id);
+        return View["/task.cshtml", newTask];
+      };
       Post["/view_all"] =_=> {
         Task newTask = new Task(Request.Form["add"]);
         // newTask.Save();
         List<Task> _superlist = Task.GetAll();
         return View ["view_all.cshtml", _superlist];
+      };
+      Get["/view_all_posts"] =_=> {
+        List<Task> _superlist = Task.GetAll();
+        return View ["view_all_posts.cshtml", _superlist];
       };
     }
   }
