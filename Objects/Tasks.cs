@@ -1,30 +1,39 @@
 using System.Collections.Generic;
-using todoNamespace;
+using System;
+
 namespace Todo.Objects
 {
   public class Task
   {
       private string _taskMaster;
-      private static List <string> _superlist = new List <string> {};
+      private int _id;
+      private static List<Task> _superlist = new List<Task> {};
       /////Constructor function
       public Task (string taskMaster)
       {
-        _taskMaster = taskMaster
+        _taskMaster = taskMaster;
+        _superlist.Add(this);
+        _id = _superlist.Count;
+
+      }
+      //// Get taskmaster function
+      public string GettaskMaster()
+      {
+        return _taskMaster;
+      }
+      // Get Taskmaster ID function
+      public int GetId()
+      {
+        return _id;
       }
       ////List All function
-      public static List<string> GetAll()
+      public static List<Task> GetAll()
       {
         return _superlist;
       }
-      /// Save function
-      public static Save()
+      public static Task Find(int searchId)
       {
-        _superlist.Add(_taskMaster)
+        return _superlist[searchId-1];
       }
-
-
-
-
-
   }
 }
