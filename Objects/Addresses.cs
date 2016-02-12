@@ -4,12 +4,13 @@ using System;
 namespace Addresses.Objects
 {
   public class Contact
-    
+
   {
     ///Create Private variables and list
     private string _name;
     private string _address;
     private int _phone;
+    private int _id;
     private static List<Contact> _addressBook = new List<Contact> {};
     ///Create constructor function for Address
     //Add object to List upon object obstantiation
@@ -20,6 +21,7 @@ namespace Addresses.Objects
       _address = address;
       _phone = phone;
       _addressBook.Add(this);
+      _id = _addressBook.Count;
     }
 
     //Get function for name private variables
@@ -40,6 +42,11 @@ namespace Addresses.Objects
       string PhoneString = _phone.ToString();
       return PhoneString;
     }
+    public string getId()
+    {
+      string IdString = _id.ToString();
+      return IdString;
+    }
     //Get full AddressBook List
 
     public static List<Contact> getAll()
@@ -51,6 +58,16 @@ namespace Addresses.Objects
     public static void clearAll()
     {
       _addressBook.Clear();
+    }
+
+    public void clearOne()
+    {
+      _addressBook.Remove(this);
+    }
+
+    public static Contact Find(int Id)
+    {
+      return _addressBook[Id-1];
     }
 
 

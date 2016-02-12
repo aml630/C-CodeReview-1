@@ -12,30 +12,36 @@ namespace AddressNamespace
     {
       Get["/"] = _ =>
       {
-        return View["index.cshtml"];
+        return View["AddressViews/index.cshtml"];
       };
 
       Get["/add"] = _ =>
       {
-        return View["addAddress.cshtml"];
+        return View["AddressViews/addAddress.cshtml"];
       };
 
       Get["/list"] = _ =>
       {
         var printOut = Contact.getAll();
-        return View["addressList.cshtml", printOut];
+        return View["AddressViews/addressList.cshtml", printOut];
       };
 
       Post["/post"] = _ =>
       {
         Contact newAddress = new Contact(Request.Form["name"], Request.Form["address"], Request.Form["phone"]);
-        return View["newContact.cshtml", newAddress];
+        return View["AddressViews/newContact.cshtml", newAddress];
       };
 
       Get["/deleteAll"] = _ =>
       {
         Contact.clearAll();
-        return View["cleared.cshtml"];
+        return View["AddressViews/cleared.cshtml"];
+      };
+
+      Get["/deleteOne/{variable}"] = parameters =>
+      {
+        Contact.Find(parameters.variable).clearOne();
+        return View["AddressViews/index.cshtml"];
       };
     }
   }
