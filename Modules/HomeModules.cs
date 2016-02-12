@@ -58,9 +58,6 @@ namespace AddressNamespace
         var currentAddress = Contact.Find(parameters.variable);
         CompleteProfile.Add("newInfo", newPerson);
         CompleteProfile.Add("oldInfo", currentAddress);
-
-
-
         return View["PersonViews/profile.cshtml", CompleteProfile];
       };
 
