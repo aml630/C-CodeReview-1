@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System;
 
-namespace Todo.Objects
+namespace Addresses.Objects
 {
   public class Task
   {
-    
+
   }
 }
