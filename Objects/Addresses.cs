@@ -4,6 +4,7 @@ using System;
 namespace Addresses.Objects
 {
   public class Contact
+    
   {
     ///Create Private variables and list
     private string _name;

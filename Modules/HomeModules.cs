@@ -26,11 +26,10 @@ namespace AddressNamespace
         return View["addressList.cshtml", printOut];
       };
 
-      Post["/postList"] = _ =>
+      Post["/post"] = _ =>
       {
         Contact newAddress = new Contact(Request.Form["name"], Request.Form["address"], Request.Form["phone"]);
-        var printOut = Contact.getAll();
-        return View["addressList.cshtml", printOut];
+        return View["newContact.cshtml", newAddress];
       };
 
       Get["/deleteAll"] = _ =>
