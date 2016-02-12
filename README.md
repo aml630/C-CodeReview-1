@@ -17,7 +17,7 @@ DNX451
 Razor
 
 ##Instructions
-Visit [my portfolio page here](https://github.com/aml630/C-CodeReview-1)
+Visit [my Github page here](https://github.com/aml630/C-CodeReview-1)
 
 ##License
 This project is released under the [MIT License]
