@@ -4,7 +4,6 @@ using System;
 namespace Addresses.Objects
 {
   public class Contact
-
   {
     ///Create Private variables and list
     private string _name;
@@ -71,9 +70,5 @@ namespace Addresses.Objects
     {
       return _addressBook[Id-1];
     }
-
-
-
-
   }
 }
