@@ -33,6 +33,7 @@ namespace Addresses.Objects
       return _address;
     }
     //Get function for address private variable
+    //Must convert to string before printing out
     public string getPhone()
     {
       string PhoneString = _phone.ToString();
@@ -44,6 +45,7 @@ namespace Addresses.Objects
     {
       return _addressBook ;
     }
+    ///clear List
 
     public static void clearAll()
     {
