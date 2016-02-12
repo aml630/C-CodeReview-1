@@ -1,3 +1,14 @@
 <h1>Your list of addresses</h1>
 
-@foreach(var x in )
+@foreach(var address in Model)
+{
+  <li>@address.getName()</li>
+  <li>@address.getAddress()</li>
+  <li>@address.getPhone()</li>
+
+</br>
+}
+
+<a href = "/">Home</a>
+<a href = "/add">Add a new contact</a>
+<a href = "/deleteAll">Clear contact list</a>

@@ -22,16 +22,22 @@ namespace AddressNamespace
 
       Get["/list"] = _ =>
       {
-        return View["addressList.cshtml"];
+        var printOut = Contact.getAll();
+        return View["addressList.cshtml", printOut];
       };
 
       Post["/postList"] = _ =>
       {
-
-
-        return View["addressList.cshtml"];
+        Contact newAddress = new Contact(Request.Form["name"], Request.Form["address"], Request.Form["phone"]);
+        var printOut = Contact.getAll();
+        return View["addressList.cshtml", printOut];
       };
 
+      Get["/deleteAll"] = _ =>
+      {
+        Contact.clearAll();
+        return View["cleared.cshtml"];
+      };
     }
   }
 }
