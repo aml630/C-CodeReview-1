@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System;
 using Addresses.Objects;
 using Person.Objects;
-
+//CODEReview Questions:
+//How to get consol.writeline displaying value
+//Why is my routing off in the end after delete.  
 
 namespace AddressNamespace
 {
@@ -48,6 +50,7 @@ namespace AddressNamespace
       Get["/profileForm/{variable}"] = parameters =>
       {
         var current = Contact.Find(parameters.variable);
+        Console.WriteLine(current);
         return View["PersonViews/profileForm.cshtml", current];
       };
 

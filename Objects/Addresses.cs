@@ -11,6 +11,7 @@ namespace Addresses.Objects
     private string _address;
     private int _phone;
     private int _id;
+    private static int _routeValue = 0;
     private static List<Contact> _addressBook = new List<Contact> {};
     ///Create constructor function for Address
     //Add object to List upon object obstantiation
@@ -21,7 +22,8 @@ namespace Addresses.Objects
       _address = address;
       _phone = phone;
       _addressBook.Add(this);
-      _id = _addressBook.Count;
+      _routeValue +=1;
+      _id = _routeValue;
     }
 
     //Get function for name private variables
