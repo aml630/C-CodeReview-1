@@ -2,6 +2,7 @@ using Nancy;
 using System.Collections.Generic;
 using System;
 using Addresses.Objects;
+using Person.Objects;
 
 
 namespace AddressNamespace
@@ -43,6 +44,26 @@ namespace AddressNamespace
         Contact.Find(parameters.variable).clearOne();
         return View["AddressViews/index.cshtml"];
       };
+
+      Get["/profileForm/{variable}"] = parameters =>
+      {
+        var current = Contact.Find(parameters.variable);
+        return View["PersonViews/profileForm.cshtml", current];
+      };
+
+      Post["/profile/{variable}"] = parameters =>
+      {
+        Dictionary<string, object> CompleteProfile = new Dictionary <string, object>();
+        Profile newPerson = new Profile (Request.Form["activity"], Request.Form["pic"]);
+        var currentAddress = Contact.Find(parameters.variable);
+        CompleteProfile.Add("newInfo", newPerson);
+        CompleteProfile.Add("oldInfo", currentAddress);
+
+
+
+        return View["PersonViews/profile.cshtml", CompleteProfile];
+      };
+
     }
   }
 }

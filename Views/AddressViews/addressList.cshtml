@@ -2,7 +2,7 @@
 
 @foreach(var address in Model)
 {
-  <li>@address.getName()</li>
+<li> <a href ="/profileForm/@address.getId()">@address.getName()</a></li>
   <li>@address.getAddress()</li>
   <li>@address.getPhone()</li>
   <a href="/deleteOne/@address.getId()">Remove Me</a>
